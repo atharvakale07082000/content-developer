@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#494bd6",
+              "surface": "#131313",
+              "on-tertiary-container": "#452000",
+              "tertiary": "#ffb783",
+              "on-tertiary-fixed": "#301400",
+              "on-error-container": "#ffdad6",
+              "on-error": "#690005",
+              "on-surface-variant": "#c7c4d7",
+              "tertiary-container": "#d97721",
+              "outline-variant": "#464554",
+              "surface-tint": "#c0c1ff",
+              "on-secondary-fixed": "#13144a",
+              "tertiary-fixed-dim": "#ffb783",
+              "surface-container-high": "#2a2a2a",
+              "surface-container": "#201f1f",
+              "error": "#ffb4ab",
+              "surface-container-highest": "#353534",
+              "error-container": "#93000a",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-tertiary-fixed-variant": "#703700",
+              "secondary-container": "#42447b",
+              "on-secondary-container": "#b2b3f2",
+              "inverse-surface": "#e5e2e1",
+              "on-tertiary": "#4f2500",
+              "primary-fixed": "#e1e0ff",
+              "on-surface": "#e5e2e1",
+              "secondary": "#c0c1ff",
+              "on-primary": "#1000a9",
+              "surface-variant": "#353534",
+              "surface-container-low": "#1c1b1b",
+              "surface-bright": "#393939",
+              "primary-fixed-dim": "#c0c1ff",
+              "outline": "#908fa0",
+              "on-primary-fixed": "#07006c",
+              "on-primary-container": "#0d0096",
+              "on-background": "#e5e2e1",
+              "surface-dim": "#131313",
+              "surface-container-lowest": "#0e0e0e",
+              "primary-container": "#8083ff",
+              "on-secondary": "#292a60",
+              "background": "#131313",
+              "inverse-on-surface": "#313030",
+              "on-secondary-fixed-variant": "#404178",
+              "primary": "#c0c1ff",
+              "tertiary-fixed": "#ffdcc5",
+              "secondary-fixed-dim": "#c0c1ff",
+              "secondary-fixed": "#e1e0ff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #8083ff 0%, #c0c1ff 100%);
+        }
+        .glass-panel {
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313] dark:bg-[#131313]">
+<div class="max-w-[640px] mx-auto flex items-center justify-between px-6 h-16">
+<div class="flex items-center gap-4">
+<button class="text-[#c0c1ff] scale-95 active:duration-100 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Inter'] tracking-tighter font-bold text-[#e5e2e1] text-xl">AI Suggestions</h1>
+</div>
+<button class="text-[#c7c4d7] hover:text-[#c0c1ff] transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<main class="max-w-[640px] mx-auto pt-24 pb-44 px-6">
+<!-- Header Section -->
+<div class="mb-10">
+<p class="text-on-surface-variant text-sm uppercase tracking-[0.1em] font-medium mb-2">Nocturne AI Analysis</p>
+<h2 class="text-4xl font-extrabold tracking-tighter leading-tight text-on-surface">Content strategies refined for your brand.</h2>
+</div>
+<!-- AI Generated Cards -->
+<div id="suggestions-container" class="space-y-6">
+    <!-- Dynamic cards will be rendered here -->
+</div>
+</main>
+<!-- Sticky Bottom Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-[60] pb-8 pt-4 bg-gradient-to-t from-surface via-surface/90 to-transparent">
+<div class="max-w-[640px] mx-auto px-6">
+<button id="generate-drafts" class="editorial-gradient w-full py-5 rounded-xl text-on-primary font-bold text-lg flex items-center justify-center gap-3 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_15px_-3px_rgba(99,102,241,0.3)] active:scale-95 transition-transform duration-100 disabled:opacity-50">
+                Generate Drafts
+                <span class="material-symbols-outlined font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center px-4 py-2 bg-[#1c1b1b]/80 backdrop-blur-xl max-w-[400px] mx-auto rounded-full shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_15px_-3px_rgba(99,102,241,0.08)]">
+<a class="flex items-center justify-center text-[#c7c4d7] p-3 hover:bg-[#2a2a2a] rounded-full transition-all scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="tally">tty</span>
+</a>
+<a class="flex items-center justify-center text-[#c7c4d7] p-3 hover:bg-[#2a2a2a] rounded-full transition-all scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</a>
+<a class="flex items-center justify-center bg-[#c0c1ff] text-[#1000a9] rounded-full p-3 scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="auto_fix_high" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+</a>
+<a class="flex items-center justify-center text-[#c7c4d7] p-3 hover:bg-[#2a2a2a] rounded-full transition-all scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</a>
+</nav>
+<script src="/suggestions.js"></script>
+</body></html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Content Drafts Viewer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#494bd6",
+              "inverse-surface": "#e5e2e1",
+              "secondary-fixed": "#e1e0ff",
+              "on-primary-container": "#0d0096",
+              "surface-variant": "#353534",
+              "outline-variant": "#464554",
+              "secondary-fixed-dim": "#c0c1ff",
+              "surface-container-low": "#1c1b1b",
+              "on-surface-variant": "#c7c4d7",
+              "surface-container-highest": "#353534",
+              "on-secondary-fixed-variant": "#404178",
+              "on-secondary": "#292a60",
+              "surface": "#131313",
+              "on-tertiary": "#4f2500",
+              "secondary-container": "#42447b",
+              "error-container": "#93000a",
+              "primary-fixed-dim": "#c0c1ff",
+              "tertiary-container": "#d97721",
+              "tertiary-fixed": "#ffdcc5",
+              "outline": "#908fa0",
+              "on-error": "#690005",
+              "surface-dim": "#131313",
+              "on-tertiary-fixed-variant": "#703700",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed": "#301400",
+              "on-secondary-container": "#b2b3f2",
+              "tertiary": "#ffb783",
+              "surface-container": "#201f1f",
+              "on-error-container": "#ffdad6",
+              "primary-container": "#8083ff",
+              "on-secondary-fixed": "#13144a",
+              "background": "#131313",
+              "surface-container-high": "#2a2a2a",
+              "on-background": "#e5e2e1",
+              "tertiary-fixed-dim": "#ffb783",
+              "surface-tint": "#c0c1ff",
+              "on-tertiary-container": "#452000",
+              "on-primary-fixed": "#07006c",
+              "primary": "#c0c1ff",
+              "inverse-on-surface": "#313030",
+              "on-surface": "#e5e2e1",
+              "on-primary-fixed-variant": "#2f2ebe",
+              "on-primary": "#1000a9",
+              "surface-bright": "#393939",
+              "secondary": "#c0c1ff",
+              "surface-container-lowest": "#0e0e0e",
+              "primary-fixed": "#e1e0ff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar from JSON Authority -->
+<header class="bg-[#131313] dark:bg-[#131313] docked full-width top-0 z-50">
+<div class="max-w-[640px] mx-auto flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#c0c1ff] cursor-pointer">menu</span>
+<h1 class="text-lg font-bold tracking-[0.05em] uppercase text-[#c0c1ff]">DRAFTS</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/15 flex items-center justify-center overflow-hidden">
+<img alt="User profile" data-alt="Minimalist user profile avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIIytMxxxd8YrwS31KSE1B-sS_OdXJaraDO2bapYrSnnpCoZWRof0d9kwXQVIkeEVfwivDyKYTlmTpXoJFATmrWZbFNMX6Rp_CqbDdbaiancSzCRCe4Bu-kLEC0-qUBtbxK8sS-9ROQ55HBkzsYHC2s65gf9F6Hc9l-PQXLDd5e7WHwhYYAFaw4XxqfxJMRoIJxp_OJzhtkZ9r4Z4Tdntr2phRZeETryTmLSWw7cbLiQU5r8uNKkIYhVv1dCdvWHlFw6BlsWq7LXg"/>
+</div>
+</div>
+<div class="h-px w-full bg-surface-container-low"></div>
+</header>
+<main class="max-w-[640px] mx-auto px-6 pt-8 space-y-12">
+<!-- Tab Interface Section -->
+<section class="space-y-6">
+<div id="tabs-container" class="flex items-center justify-between p-1 bg-surface-container-lowest rounded-xl">
+<!-- dynamically generated tabs go here -->
+</div>
+<!-- Draft Card -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+<div class="relative bg-surface-container-low rounded-2xl overflow-hidden shadow-2xl">
+<!-- Card Header -->
+<div class="flex items-center justify-between px-8 pt-8 pb-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Active Draft</span>
+</div>
+<button id="copy-btn" class="flex items-center gap-2 px-4 py-2 bg-primary-container/10 hover:bg-primary-container/20 border border-primary/20 rounded-full transition-all duration-300 group/btn">
+<span class="material-symbols-outlined text-[18px] text-primary">content_copy</span>
+<span class="text-xs font-bold uppercase tracking-tight text-primary">Copy</span>
+</button>
+</div>
+<!-- Content Body -->
+<div class="px-8 pb-6">
+<article class="prose prose-invert max-w-none">
+<p id="draft-content" class="whitespace-pre-wrap text-body-lg text-on-surface leading-relaxed font-normal">
+</p>
+</article>
+</div>
+<!-- Card Footer -->
+<div class="px-8 pb-8 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<a class="text-xs font-medium text-on-surface-variant/60 hover:text-primary transition-colors flex items-center gap-1 uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-sm">refresh</span>
+                                Regenerate
+                            </a>
+</div>
+<div id="word-count" class="text-[10px] font-medium text-outline/40 uppercase tracking-widest">
+                            Words: 0
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Metadata Section / Secondary Content -->
+<section class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-6 rounded-2xl space-y-2">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Tone</span>
+<p class="text-on-surface font-medium">Thought Leadership</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl space-y-2">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Version</span>
+<p class="text-on-surface font-medium">Draft 2.4.0</p>
+</div>
+</section>
+</main>
+<!-- NavigationDrawer Logic (Simplified for Mobile view) -->
+<!-- Represented by the BottomNavBar from JSON Authority -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center p-4 bg-[#1c1b1b]/80 backdrop-blur-xl rounded-full mb-6 mx-auto w-[90%] max-w-[400px] shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_15px_-3px_rgba(99,102,241,0.08)]">
+<!-- Articles (Inactive) -->
+<div class="flex flex-col items-center justify-center text-[#c7c4d7] opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-medium uppercase tracking-widest Inter mt-1">Articles</span>
+</div>
+<!-- Scripts (Active based on Draft content context) -->
+<div class="flex flex-col items-center justify-center text-[#c0c1ff] font-bold scale-110 duration-300 ease-out cursor-pointer">
+<span class="material-symbols-outlined">description</span>
+<span class="text-[10px] font-medium uppercase tracking-widest Inter mt-1">Scripts</span>
+</div>
+<!-- Shorts (Inactive) -->
+<div class="flex flex-col items-center justify-center text-[#c7c4d7] opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-[10px] font-medium uppercase tracking-widest Inter mt-1">Shorts</span>
+</div>
+<!-- Audio (Inactive) -->
+<div class="flex flex-col items-center justify-center text-[#c7c4d7] opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined">mic</span>
+<span class="text-[10px] font-medium uppercase tracking-widest Inter mt-1">Audio</span>
+</div>
+</nav>
+<script src="/drafts.js"></script>
+</body></html>

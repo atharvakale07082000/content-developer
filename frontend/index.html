@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nocturne AI - Content Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error": "#690005",
+                        "tertiary-container": "#d97721",
+                        "on-surface-variant": "#c7c4d7",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed": "#e1e0ff",
+                        "tertiary-fixed": "#ffdcc5",
+                        "secondary-container": "#42447b",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "on-primary": "#1000a9",
+                        "surface-variant": "#353534",
+                        "outline-variant": "#464554",
+                        "on-secondary-fixed": "#13144a",
+                        "primary-container": "#8083ff",
+                        "on-primary-fixed": "#07006c",
+                        "inverse-primary": "#494bd6",
+                        "surface-bright": "#393939",
+                        "surface-dim": "#131313",
+                        "on-tertiary-container": "#452000",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "surface-tint": "#c0c1ff",
+                        "outline": "#908fa0",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "background": "#131313",
+                        "on-secondary": "#292a60",
+                        "on-secondary-fixed-variant": "#404178",
+                        "tertiary": "#ffb783",
+                        "on-secondary-container": "#b2b3f2",
+                        "on-surface": "#e5e2e1",
+                        "secondary": "#c0c1ff",
+                        "primary": "#c0c1ff",
+                        "surface-container-highest": "#353534",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "on-tertiary": "#4f2500",
+                        "secondary-fixed": "#e1e0ff",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-container": "#0d0096",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-fixed": "#301400",
+                        "error": "#ffb4ab",
+                        "inverse-on-surface": "#313030"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .tonal-transition {
+            background: linear-gradient(to bottom, #131313, #1c1b1b);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313] dark:bg-[#131313]">
+<div class="max-w-[640px] mx-auto flex items-center justify-between px-6 h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#c0c1ff]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h1 class="font-['Inter'] tracking-tighter font-bold text-xl text-[#e5e2e1]">Nocturne AI</h1>
+</div>
+<button class="text-[#c7c4d7] hover:text-[#c0c1ff] transition-colors p-2">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-start pt-24 pb-32 px-6 max-w-[640px] mx-auto w-full">
+<!-- Hero Section / Context -->
+<div class="w-full mb-10">
+<h2 class="text-3xl font-extrabold tracking-tighter mb-2 text-on-surface">New Analysis</h2>
+<p class="text-on-surface-variant body-lg leading-relaxed">Turn any source into editorial content.</p>
+</div>
+<!-- Input Area Container -->
+<div class="w-full space-y-8">
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-tr from-primary-container to-primary rounded-xl blur opacity-10 group-focus-within:opacity-20 transition duration-500"></div>
+<textarea id="job-input" class="relative w-full h-64 p-6 bg-surface-container-lowest border-none rounded-xl text-on-surface placeholder:text-outline/50 focus:ring-0 focus:outline-none resize-none body-lg leading-relaxed" placeholder="Paste a YouTube URL, blog link, or describe a topic..."></textarea>
+</div>
+<!-- CTA Section -->
+<div class="flex flex-col items-center gap-6">
+<button id="submit-job" class="w-full py-4 px-8 rounded-full bg-gradient-to-tr from-primary-container to-primary text-on-primary font-bold text-lg shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_15px_-3px_rgba(99,102,241,0.2)] active:scale-95 transition-all duration-200">
+                    Analyse Content
+                </button>
+<!-- Format Badges -->
+<div class="flex flex-wrap justify-center gap-3">
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] uppercase tracking-[0.05em] font-medium border border-outline-variant/15 hover:border-primary/40 hover:text-primary transition-all">
+                        LinkedIn
+                    </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] uppercase tracking-[0.05em] font-medium border border-outline-variant/15 hover:border-primary/40 hover:text-primary transition-all">
+                        Email Newsletter
+                    </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] uppercase tracking-[0.05em] font-medium border border-outline-variant/15 hover:border-primary/40 hover:text-primary transition-all">
+                        Instagram
+                    </button>
+</div>
+</div>
+</div>
+<!-- History Preview (Asymmetric Layout Example) -->
+<section class="w-full mt-16 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-[10px] uppercase tracking-[0.1em] font-bold text-on-surface-variant/60">Recent Generations</h3>
+<div class="h-[1px] flex-grow ml-4 bg-outline-variant/10"></div>
+</div>
+<div class="grid grid-cols-5 gap-4">
+<div class="col-span-3 h-32 bg-surface-container-low rounded-xl p-4 flex flex-col justify-end group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-primary text-xs font-bold mb-1">LinkedIn</span>
+<p class="text-sm font-medium line-clamp-2">The Future of Generative Design Systems in 2024</p>
+</div>
+<div class="col-span-2 h-32 bg-surface-container-low rounded-xl p-4 flex flex-col justify-end group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-tertiary text-xs font-bold mb-1">IG</span>
+<p class="text-sm font-medium line-clamp-2">Visualizing Nocturne</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center px-4 py-2">
+<div class="bg-[#1c1b1b]/80 backdrop-blur-xl w-[calc(100%-3rem)] max-w-[400px] rounded-full flex justify-around items-center p-2 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.5),0_0_15px_-3px_rgba(99,102,241,0.08)]">
+<a class="flex items-center justify-center text-[#c7c4d7] p-3 hover:bg-[#2a2a2a] rounded-full transition-all scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="tally">tty</span>
+</a>
+<a class="flex items-center justify-center text-[#c7c4d7] p-3 hover:bg-[#2a2a2a] rounded-full transition-all scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</a>
+<a class="flex items-center justify-center bg-[#c0c1ff] text-[#1000a9] rounded-full p-3 scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="auto_fix_high">auto_fix_high</span>
+</a>
+<a class="flex items-center justify-center text-[#c7c4d7] p-3 hover:bg-[#2a2a2a] rounded-full transition-all scale-90 active:duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</a>
+</div>
+</nav>
+<!-- Background Decoration -->
+<div class="fixed top-0 right-0 -z-10 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="fixed bottom-0 left-0 -z-10 w-64 h-64 bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<script src="/index.js"></script>
+</body></html>
