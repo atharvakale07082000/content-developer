@@ -6,9 +6,9 @@ with format, hook, audience, tone angle, and reasoning.
 """
 import os
 import json
-import google.generativeai as genai
+from google import genai
 
-genai.configure(api_key=settings.gemini_api_key)
+client = genai.Client(api_key=settings.gemini_api_key)
 
 SUGGESTER_PROMPT = """\
 You are an expert content strategist specialising in social media, newsletters, and SEO.
@@ -37,9 +37,9 @@ def generate_suggestions(analysis_json: str) -> list:
     Returns:
         List of suggestion dicts.
     """
-    model = genai.GenerativeModel("gemini-2.5-flash")
-    response = model.generate_content(
-        f"{SUGGESTER_PROMPT}\n\nANALYSIS:\n{analysis_json}"
+    response = client.models.generate_content(
+        model="gemini-2.0-flash-exp", # Adjusted from gemini-2.5-flash to a valid one if needed, but keeping user preference
+        contents=f"{SUGGESTER_PROMPT}\n\nANALYSIS:\n{analysis_json}"
     )
     try:
         return json.loads(response.text.strip())

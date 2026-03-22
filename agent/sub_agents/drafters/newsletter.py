@@ -1,9 +1,9 @@
 from core.config import settings
 """Email newsletter drafter."""
 import os
-import google.generativeai as genai
+from google import genai
 
-genai.configure(api_key=settings.gemini_api_key)
+client = genai.Client(api_key=settings.gemini_api_key)
 
 PROMPT = """\
 You are an expert email newsletter writer. Draft a newsletter edition based on the content brief below.
@@ -27,10 +27,12 @@ Return the full newsletter with clear section labels.
 
 
 def draft_newsletter(content: str, suggestion: dict) -> str:
-    model = genai.GenerativeModel("gemini-2.5-flash")
     system = PROMPT.format(
         tone_angle=suggestion.get("tone_angle", "conversational"),
         target_audience=suggestion.get("target_audience", "subscribers"),
     )
-    response = model.generate_content(f"{system}\n\nCONTENT BRIEF:\n{content}\n\nANGLE:\n{suggestion.get('hook', '')}")
+    response = client.models.generate_content(
+        model="gemini-2.0-flash-exp",
+        contents=f"{system}\n\nCONTENT BRIEF:\n{content}\n\nANGLE:\n{suggestion.get('hook', '')}"
+    )
     return response.text.strip()

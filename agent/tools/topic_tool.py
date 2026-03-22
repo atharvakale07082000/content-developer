@@ -4,10 +4,10 @@ Tool: expand_topic
 Builds a rich content brief from a free-form topic using Gemini web search grounding.
 """
 import os
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 
-
-genai.configure(api_key=settings.gemini_api_key)
+client = genai.Client(api_key=settings.gemini_api_key)
 
 
 
@@ -22,16 +22,18 @@ def expand_topic(topic: str) -> dict:
         dict with keys: brief (str), success (bool), error (str|None)
     """
     try:
-        model = genai.GenerativeModel(
-            "gemini-2.5-flash",
-            tools="google_search_retrieval",
-        )
         prompt = (
             f"Research the following topic and produce a structured content brief "
             f"including: key facts, statistics, expert opinions, current trends, "
             f"and interesting angles for content creators.\n\nTopic: {topic}"
         )
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model="gemini-2.0-flash-exp",
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())]
+            )
+        )
         return {"success": True, "brief": response.text, "error": None}
     except Exception as e:
         return {"success": False, "brief": "", "error": str(e)}

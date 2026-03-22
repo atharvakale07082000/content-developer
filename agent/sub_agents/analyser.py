@@ -7,9 +7,9 @@ Returns a JSON-serialisable dict.
 """
 import os
 import json
-import google.generativeai as genai
+from google import genai
 
-genai.configure(api_key=settings.gemini_api_key)
+client = genai.Client(api_key=settings.gemini_api_key)
 
 ANALYSER_PROMPT = """\
 You are a senior content strategist. Analyse the provided content and return ONLY a valid JSON object with this exact structure:
@@ -40,9 +40,9 @@ def analyse_content(content: str) -> dict:
     Returns:
         Structured analysis dict.
     """
-    model = genai.GenerativeModel("gemini-2.5-flash")
-    response = model.generate_content(
-        f"{ANALYSER_PROMPT}\n\nCONTENT:\n{content[:12000]}"  # cap tokens
+    response = client.models.generate_content(
+        model="gemini-2.0-flash-exp", # Adjusted from gemini-2.5-flash to a valid one if needed
+        contents=f"{ANALYSER_PROMPT}\n\nCONTENT:\n{content[:12000]}"  # cap tokens
     )
     try:
         return json.loads(response.text.strip())

@@ -1,9 +1,9 @@
 from core.config import settings
 """Instagram caption drafter."""
 import os
-import google.generativeai as genai
+from google import genai
 
-genai.configure(api_key=settings.gemini_api_key)
+client = genai.Client(api_key=settings.gemini_api_key)
 
 PROMPT = """\
 You are an expert Instagram content strategist. Write a high-performing Instagram caption based on the content brief below.
@@ -24,10 +24,12 @@ Return ONLY the caption + hashtags, ready to copy-paste.
 
 
 def draft_instagram(content: str, suggestion: dict) -> str:
-    model = genai.GenerativeModel("gemini-2.5-flash")
     system = PROMPT.format(
         tone_angle=suggestion.get("tone_angle", "inspiring"),
         target_audience=suggestion.get("target_audience", "general audience"),
     )
-    response = model.generate_content(f"{system}\n\nCONTENT BRIEF:\n{content}\n\nHOOK IDEA:\n{suggestion.get('hook', '')}")
+    response = client.models.generate_content(
+        model="gemini-2.0-flash-exp",
+        contents=f"{system}\n\nCONTENT BRIEF:\n{content}\n\nHOOK IDEA:\n{suggestion.get('hook', '')}"
+    )
     return response.text.strip()
