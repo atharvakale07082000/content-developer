@@ -8,6 +8,7 @@ from typing import Optional
 from pymongo import AsyncMongoClient, ReturnDocument
 from bson import ObjectId
 from core.config import settings
+import certifi
 
 MONGODB_URI = settings.mongodb_uri
 MONGODB_DB  = settings.database_name
@@ -18,7 +19,7 @@ _client: Optional[AsyncMongoClient] = None
 def get_client() -> AsyncMongoClient:
     global _client
     if _client is None:
-        _client = AsyncMongoClient(MONGODB_URI)
+        _client = AsyncMongoClient(MONGODB_URI, tlsCAFile=certifi.where())
     return _client
 
 
