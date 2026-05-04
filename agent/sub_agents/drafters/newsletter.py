@@ -1,12 +1,24 @@
-from core.config import settings
-"""Email newsletter drafter."""
-import os
-from google import genai
+"""
+NewsletterDrafter — writes full email newsletter editions.
 
-client = genai.Client(api_key=settings.gemini_api_key)
+Model: mistralai/Mistral-7B-Instruct-v0.3
+Prompt loaded from PromptStore (seeded from defaults on first use).
+Accepts optional few_shot examples from FeedbackRetrieverAgent.
+"""
+from agent.base_agent import BaseAgent
+from agent.protocol import AgentTask, AgentResult
+from agent.hf_client import hf_chat
+from agent.prompt_store import get_prompt_store
 
-PROMPT = """\
-You are an expert email newsletter writer. Draft a newsletter edition based on the content brief below.
+FORMAT = "newsletter"
+
+_DEFAULT_SYSTEM = (
+    "You are an expert email newsletter writer. "
+    "Return the full newsletter with clear section labels. No preamble, no meta-commentary."
+)
+
+_DEFAULT_TEMPLATE = """\
+{few_shot}Draft a newsletter edition based on the content brief below.
 
 Structure:
 1. Subject line (compelling, under 50 chars)
@@ -22,17 +34,45 @@ Rules:
 - Length: 400-600 words
 - No jargon. Write like a smart friend, not a marketer.
 
-Return the full newsletter with clear section labels.
+CONTENT BRIEF:
+{content}
+
+ANGLE:
+{hook}
 """
 
 
-def draft_newsletter(content: str, suggestion: dict) -> str:
-    system = PROMPT.format(
-        tone_angle=suggestion.get("tone_angle", "conversational"),
-        target_audience=suggestion.get("target_audience", "subscribers"),
-    )
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-exp",
-        contents=f"{system}\n\nCONTENT BRIEF:\n{content}\n\nANGLE:\n{suggestion.get('hook', '')}"
-    )
-    return response.text.strip()
+class NewsletterDrafter(BaseAgent):
+    agent_id = "drafter_newsletter"
+    capabilities = ["draft_newsletter"]
+    model = "mistralai/Mistral-7B-Instruct-v0.3"
+
+    def run(self, task: AgentTask) -> AgentResult:
+        try:
+            content    = task.payload["content"]
+            suggestion = task.payload.get("suggestion", {})
+            few_shot   = task.payload.get("few_shot", "")
+
+            store = get_prompt_store()
+            pv = store.get_active(FORMAT) or store.seed(FORMAT, _DEFAULT_SYSTEM, _DEFAULT_TEMPLATE)
+
+            prompt = pv.template.format(
+                few_shot=few_shot,
+                tone_angle=suggestion.get("tone_angle", "conversational"),
+                target_audience=suggestion.get("target_audience", "subscribers"),
+                content=content[:8000],
+                hook=suggestion.get("hook", ""),
+            )
+            store.increment_usage(pv.version_id)
+            output = hf_chat(self.model, prompt, max_tokens=1500, temperature=0.72, system=pv.system)
+
+            return AgentResult(
+                task_id=task.task_id, agent_id=self.agent_id,
+                success=True, output=output,
+                metadata={"prompt_version_id": pv.version_id, "prompt_version": pv.version},
+            )
+        except Exception as e:
+            return AgentResult(
+                task_id=task.task_id, agent_id=self.agent_id,
+                success=False, output=None, error=str(e),
+            )

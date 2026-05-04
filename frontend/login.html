@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#dde3e9",
+              "secondary": "#5e5f63",
+              "on-secondary-container": "#515156",
+              "on-tertiary": "#fcf7ff",
+              "error-dim": "#4e0309",
+              "tertiary-fixed": "#d8d3f4",
+              "error": "#9f403d",
+              "surface": "#f9f9fb",
+              "on-secondary-fixed-variant": "#5b5b60",
+              "on-primary-fixed-variant": "#5c5b5d",
+              "inverse-on-surface": "#9c9d9f",
+              "tertiary-fixed-dim": "#cac6e6",
+              "inverse-primary": "#ffffff",
+              "surface-tint": "#5f5e60",
+              "on-background": "#2d3338",
+              "tertiary-container": "#d8d3f4",
+              "tertiary": "#5f5c78",
+              "surface-container-high": "#e4e9ee",
+              "on-tertiary-fixed-variant": "#54516d",
+              "surface-dim": "#d3dbe2",
+              "primary-fixed-dim": "#d6d3d6",
+              "on-tertiary-container": "#4a4863",
+              "surface-container-low": "#f2f4f6",
+              "tertiary-dim": "#53506b",
+              "on-surface-variant": "#596065",
+              "on-error-container": "#752121",
+              "secondary-dim": "#525357",
+              "primary-dim": "#535254",
+              "on-primary-container": "#525154",
+              "surface-variant": "#dde3e9",
+              "outline-variant": "#acb3b8",
+              "on-error": "#fff7f6",
+              "on-secondary": "#faf8fe",
+              "secondary-container": "#e3e2e7",
+              "on-primary-fixed": "#3f3f41",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0c0e10",
+              "secondary-fixed": "#e3e2e7",
+              "on-primary": "#faf7f9",
+              "on-tertiary-fixed": "#37354f",
+              "primary": "#5f5e60",
+              "outline": "#757c81",
+              "surface-container": "#ebeef2",
+              "primary-container": "#e4e2e4",
+              "error-container": "#fe8983",
+              "primary-fixed": "#e4e2e4",
+              "surface-bright": "#f9f9fb",
+              "on-secondary-fixed": "#3e3f43",
+              "background": "#f9f9fb",
+              "on-surface": "#2d3338",
+              "secondary-fixed-dim": "#d5d4d9"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .architect-gradient {
+            background: linear-gradient(145deg, #5f5e60 0%, #535254 100%);
+        }
+        .soft-glow {
+            box-shadow: 0 12px 32px rgba(45, 51, 56, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Auth Shell Suppression: Per "Semantic Shell Mandate", Nav is hidden for Login -->
+<main class="flex-grow flex items-center justify-center px-6 py-12">
+<div class="w-full max-w-[440px] space-y-12">
+<!-- Branding Anchor -->
+<div class="flex flex-col items-center space-y-4">
+<div class="w-12 h-12 rounded-xl architect-gradient flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="architecture">architecture</span>
+</div>
+<div class="text-center space-y-1">
+<h1 class="text-[2.75rem] font-extrabold tracking-tighter text-on-background leading-none">Architect AI</h1>
+<p class="text-on-surface-variant font-medium tracking-tight">Precision engineering for modern teams.</p>
+</div>
+</div>
+<!-- Login Card -->
+<div class="bg-surface-container-lowest rounded-xl soft-glow p-10 space-y-8 border border-outline-variant/10">
+<div class="space-y-6">
+<!-- Social Auth -->
+<button class="w-full flex items-center justify-center gap-3 py-3.5 px-4 bg-surface-container-low hover:bg-surface-container-highest transition-colors duration-200 rounded-xl font-medium text-on-surface border border-outline-variant/10">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                        Continue with Google
+                    </button>
+<div class="flex items-center gap-4">
+<div class="h-[1px] flex-grow bg-outline-variant/20"></div>
+<span class="text-[0.75rem] uppercase tracking-widest text-on-surface-variant font-bold">or</span>
+<div class="h-[1px] flex-grow bg-outline-variant/20"></div>
+</div>
+<!-- Email Form -->
+<form id="login-form" class="space-y-5">
+    <div class="space-y-2">
+        <label class="text-[0.75rem] font-bold uppercase tracking-wider text-on-surface-variant ml-1">Email Address</label>
+        <input required class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3.5 text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all duration-200" placeholder="name@company.com" type="email"/>
+    </div>
+    <div class="space-y-2">
+        <div class="flex justify-between items-center ml-1">
+            <label class="text-[0.75rem] font-bold uppercase tracking-wider text-on-surface-variant">Password</label>
+            <a class="text-[0.75rem] font-semibold text-primary hover:underline" href="#">Forgot?</a>
+        </div>
+        <input required class="w-full bg-surface-container-low border-0 rounded-xl px-4 py-3.5 text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all duration-200" placeholder="••••••••" type="password"/>
+    </div>
+    <button class="w-full architect-gradient text-on-primary py-4 rounded-xl font-bold tracking-tight shadow-lg shadow-primary/10 hover:opacity-90 transition-opacity duration-200" type="submit">
+        Enter Workspace
+    </button>
+</form>
+</div>
+<p class="text-center text-sm text-on-surface-variant">
+    Don't have an account? 
+    <a class="text-on-background font-bold hover:underline" href="/register.html">Request access</a>
+</p>
+<script>
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.location.href = '/dashboard.html';
+    });
+</script>
+</div>
+<!-- Security Footer -->
+<div class="flex flex-col items-center gap-6 opacity-60">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 grayscale brightness-125">
+<span class="material-symbols-outlined text-lg" data-icon="shield_lock">shield_lock</span>
+<span class="text-[0.65rem] font-bold uppercase tracking-[0.2em]">AES-256 Encrypted</span>
+</div>
+<div class="flex items-center gap-2 grayscale brightness-125">
+<span class="material-symbols-outlined text-lg" data-icon="verified_user">verified_user</span>
+<span class="text-[0.65rem] font-bold uppercase tracking-[0.2em]">ISO 27001</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Global Footer: Per JSON requirements -->
+<footer class="w-full py-12 px-8 bg-surface  border-t border-outline-variant/20">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-80 gap-6">
+<span class="text-on-surface-variant font-inter text-xs tracking-wide uppercase">© 2024 Digital Architect. Built for Precision.</span>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-surface-variant font-inter text-xs tracking-wide uppercase hover:text-on-surface underline decoration-primary" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-inter text-xs tracking-wide uppercase hover:text-on-surface underline decoration-primary" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-inter text-xs tracking-wide uppercase hover:text-on-surface underline decoration-primary" href="#">API Status</a>
+<a class="text-on-surface-variant font-inter text-xs tracking-wide uppercase hover:text-on-surface underline decoration-primary" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<!-- Subtle Background Elements -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-secondary/5 blur-[100px]"></div>
+</div>
+</body></html>

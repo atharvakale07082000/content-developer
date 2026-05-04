@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#dde3e9",
+              "secondary": "#5e5f63",
+              "on-secondary-container": "#515156",
+              "on-tertiary": "#fcf7ff",
+              "error-dim": "#4e0309",
+              "tertiary-fixed": "#d8d3f4",
+              "error": "#9f403d",
+              "surface": "#f9f9fb",
+              "on-secondary-fixed-variant": "#5b5b60",
+              "on-primary-fixed-variant": "#5c5b5d",
+              "inverse-on-surface": "#9c9d9f",
+              "tertiary-fixed-dim": "#cac6e6",
+              "inverse-primary": "#ffffff",
+              "surface-tint": "#5f5e60",
+              "on-background": "#2d3338",
+              "tertiary-container": "#d8d3f4",
+              "tertiary": "#5f5c78",
+              "surface-container-high": "#e4e9ee",
+              "on-tertiary-fixed-variant": "#54516d",
+              "surface-dim": "#d3dbe2",
+              "primary-fixed-dim": "#d6d3d6",
+              "on-tertiary-container": "#4a4863",
+              "surface-container-low": "#f2f4f6",
+              "tertiary-dim": "#53506b",
+              "on-surface-variant": "#596065",
+              "on-error-container": "#752121",
+              "secondary-dim": "#525357",
+              "primary-dim": "#535254",
+              "on-primary-container": "#525154",
+              "surface-variant": "#dde3e9",
+              "outline-variant": "#acb3b8",
+              "on-error": "#fff7f6",
+              "on-secondary": "#faf8fe",
+              "secondary-container": "#e3e2e7",
+              "on-primary-fixed": "#3f3f41",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0c0e10",
+              "secondary-fixed": "#e3e2e7",
+              "on-primary": "#faf7f9",
+              "on-tertiary-fixed": "#37354f",
+              "primary": "#5f5e60",
+              "outline": "#757c81",
+              "surface-container": "#ebeef2",
+              "primary-container": "#e4e2e4",
+              "error-container": "#fe8983",
+              "primary-fixed": "#e4e2e4",
+              "surface-bright": "#f9f9fb",
+              "on-secondary-fixed": "#3e3f43",
+              "background": "#f9f9fb",
+              "on-surface": "#2d3338",
+              "secondary-fixed-dim": "#d5d4d9"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-hidden">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#f2f4f6] dark:bg-[#1a1c1e] font-inter antialiased tracking-tight text-sm flex flex-col py-8 space-y-2">
+<div class="px-6 mb-8">
+<div class="flex items-center space-x-3 mb-6">
+<div class="w-8 h-8 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm" data-icon="architecture">architecture</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#2d3338] dark:text-[#f9f9fb]">Architect</h1>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Pro Engine</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-center space-x-2 bg-primary text-on-primary py-3 rounded-xl font-semibold shadow-[0_4px_12px_rgba(95,94,96,0.2)] hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>New Draft</span>
+</button>
+</div>
+<nav class="flex-1 px-2">
+<div class="space-y-1">
+<a class="flex items-center space-x-3 border-l-4 border-[#5f5e60] bg-[#ffffff] dark:bg-[#2d3338] text-[#2d3338] dark:text-white font-semibold pl-4 py-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 text-[#596065] dark:text-[#acb3b8] pl-5 py-3 hover:bg-[#ebeef2] dark:hover:bg-[#25282b] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span>Create</span>
+</a>
+<a class="flex items-center space-x-3 text-[#596065] dark:text-[#acb3b8] pl-5 py-3 hover:bg-[#ebeef2] dark:hover:bg-[#25282b] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span>History</span>
+</a>
+<a class="flex items-center space-x-3 text-[#596065] dark:text-[#acb3b8] pl-5 py-3 hover:bg-[#ebeef2] dark:hover:bg-[#25282b] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+</div>
+</nav>
+<div class="px-2 pt-4 border-t border-outline-variant/10">
+<a class="flex items-center space-x-3 text-[#596065] dark:text-[#acb3b8] pl-5 py-3 hover:bg-[#ebeef2] dark:hover:bg-[#25282b] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center space-x-3 text-[#596065] dark:text-[#acb3b8] pl-5 py-3 hover:bg-[#ebeef2] dark:hover:bg-[#25282b] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Stage Container -->
+<main class="ml-64 min-h-screen relative flex flex-col">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 left-64 h-16 z-30 bg-[#ffffff]/80 dark:bg-[#121212]/80 backdrop-blur-xl flex justify-between items-center px-8 w-full shadow-[0_12px_32px_rgba(45,51,56,0.04)] font-inter text-sm font-medium">
+<div class="flex items-center space-x-8">
+<h2 class="text-lg font-black tracking-tighter text-[#2d3338] dark:text-white">Architect AI</h2>
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 w-64 focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all placeholder:text-outline text-xs" placeholder="Search projects..." type="text"/>
+</div>
+<nav class="hidden md:flex space-x-6">
+<a class="text-[#2d3338] dark:text-white border-b-2 border-[#5f5e60] pb-1" href="#">Models</a>
+<a class="text-[#596065] dark:text-[#acb3b8] hover:text-[#2d3338] transition-opacity duration-200" href="#">Templates</a>
+<a class="text-[#596065] dark:text-[#acb3b8] hover:text-[#2d3338] transition-opacity duration-200" href="#">Team</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/20 mx-2"></div>
+<button class="bg-surface-container-highest text-on-surface px-4 py-2 rounded-xl text-xs font-bold tracking-tight hover:opacity-80 transition-opacity">Upgrade</button>
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-highest object-cover" data-alt="User profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzm3QwXii1_ADIVApbxUdAOHPZH_hqmQsicjuGw089itrWGvb2l5TnQj65outW5xa7CBwKGoqZXGq26yHMiIw_9PY56KkCeAAxqz8e1at_K2RgySsaATPjpUrOhK-zQI4XudiXGJG0yA56HK8jRpo37qHh62zteJH9JSMdYfwe2yLqduiHqN_yDOxgLmO9Hd7R1u7R2vr6lsibxBY0KwXaq1lUWRWdsbmOnrdstZkvuFhohBx1EGafFazPA_KgSF78F5XJ_3DN-9o"/>
+</div>
+</header>
+<!-- Page Content: Dashboard -->
+<div class="mt-16 p-8 flex-1 overflow-y-auto">
+<!-- Hero / Welcome Section -->
+<section class="mb-12">
+<div class="flex justify-between items-end">
+<div>
+<span class="text-[10px] uppercase tracking-[0.2em] font-black text-on-surface-variant mb-2 block">System Status: Optimal</span>
+<h2 class="text-[2.75rem] font-bold tracking-[-0.03em] leading-none text-on-background">Nocturne Dashboard</h2>
+</div>
+<div class="flex space-x-3">
+<div class="bg-surface-container-low px-4 py-2 rounded-xl flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-[#40916c] animate-pulse"></span>
+<span class="text-xs font-medium text-on-surface-variant">4 Active Nodes</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Main Content -->
+<div class="grid grid-cols-12 gap-6 mb-12">
+<!-- Primary Action Card -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 relative overflow-hidden group border border-outline-variant/5">
+<div class="relative z-10 flex flex-col h-full">
+<div class="mb-8">
+<h3 class="text-xl font-bold mb-2">Generate New Architecture</h3>
+<p class="text-on-surface-variant max-w-md text-sm leading-relaxed">Leverage the Nocturne engine to synthesize complex data structures into high-fidelity architectural drafts.</p>
+</div>
+<div class="mt-auto grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl hover:bg-surface-container transition-colors cursor-pointer group/item">
+<div class="w-10 h-10 bg-surface-container-lowest rounded-lg flex items-center justify-center mb-3 shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<p class="font-bold text-sm">Neural Draft</p>
+<p class="text-xs text-on-surface-variant mt-1">AI-driven conceptualizing</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl hover:bg-surface-container transition-colors cursor-pointer group/item">
+<div class="w-10 h-10 bg-surface-container-lowest rounded-lg flex items-center justify-center mb-3 shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="data_exploration">data_exploration</span>
+</div>
+<p class="font-bold text-sm">Data Analysis</p>
+<p class="text-xs text-on-surface-variant mt-1">Deep structure audit</p>
+</div>
+</div>
+</div>
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-container/20 to-transparent pointer-events-none"></div>
+</div>
+<!-- Secondary Metric Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-xl p-8 border border-outline-variant/5">
+<div class="flex justify-between items-start mb-12">
+<h3 class="text-xs font-black uppercase tracking-widest text-on-surface-variant">Resource Usage</h3>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="font-medium">Compute Cycles</span>
+<span class="text-primary font-bold">82%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="font-medium">Memory Allocation</span>
+<span class="text-primary font-bold">45%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div class="pt-4">
+<button class="text-xs font-bold text-primary flex items-center hover:underline">
+                                View detailed analytics
+                                <span class="material-symbols-outlined text-sm ml-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recent Drafts Horizontal Scroll / List -->
+<div class="col-span-12">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold tracking-tight">Recent Drafts</h3>
+<button class="text-xs font-bold text-on-surface-variant hover:text-on-surface transition-colors">View All History</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Draft Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 hover:shadow-[0_12px_32px_rgba(45,51,56,0.06)] transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-tertiary-container/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="description">description</span>
+</div>
+<span class="text-[10px] bg-surface-container-low px-2 py-1 rounded-full font-bold">V1.2</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Quantum Network Layout</h4>
+<p class="text-xs text-on-surface-variant mb-4">Generated 2 hours ago • 4.2MB</p>
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="Collaborator avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjr1bjBz_ac3l92C5jqny7q9edzemBrsG1x09Jw_OKuBbCsKVMEij5eK3SuqZdY-EqkGD-_oJshHccBDtBWo7V7-Kl6Q6xgwnWOqQm0nYsLpyGELo6Y-WN7Dtiil72lIP196-b-iWTa62E3yWoPTRCbiiuuWDh2n4VbRBLxpAgFPQ9V8Fkpnls8IrAeqaa1aVjtYc1RgUWhyPSW24GIX-NWWiF8patKZdT9Cj0NMO4Fh5oXubvqaxbIs4cbSxO79gMTB1Cm19VNeE"/>
+<img class="w-6 h-6 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="Collaborator avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChf5LKynUdi-5kVaTlahz7twStkDdQO_6WqvfTu20Jx8WaOlSz-6coyRXvQTGRzdDFx7FbyxGpULt-Zm4UZkB10OYsLHt9HaDhyFB-1hEs_2LQHYaV3bo1eVlEh9s9vOEv3Kdv80CtBdYmVz7lnxA8K_whK78hRCCUoyiAMWnxnVjCGHQ4IwYHRq6Sml-nMnYtmFuK9uTUf08KidvGtPX6UvhNsnt7Dap3RZtEX8zfh00uph6WNsb1WCP0Ah4r1v-Yshl5zUYncO8"/>
+<div class="w-6 h-6 rounded-full bg-surface-container border-2 border-surface-container-lowest flex items-center justify-center text-[8px] font-bold">+3</div>
+</div>
+</div>
+<!-- Draft Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 hover:shadow-[0_12px_32px_rgba(45,51,56,0.06)] transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-secondary-container/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="schema">schema</span>
+</div>
+<span class="text-[10px] bg-surface-container-low px-2 py-1 rounded-full font-bold">STABLE</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Core Logic Flowchart</h4>
+<p class="text-xs text-on-surface-variant mb-4">Modified yesterday • 1.8MB</p>
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-surface-container-lowest object-cover" data-alt="Collaborator avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFYDw9eDb17PU_JfrA1__EYOUNIKqTViruATEnKqDQnRPMIhum_2T4bDDk0QFHiP0nA_nIsR_QmxzwqMqcxjW2Go15CJaJvxRzKj7f6jTAmRgz-fqP3SqCb-2vahs3yJtTBMabfiRDlCpurBBFfyqdhJneF6rzr_hnn5xLe-0ZGeZv4TQlQzMbAee1iMyTFjA5pxTsULq49Cs5qZWZU1gmy4Sx2j1VjW9U_lC9M2Pg03NijGq3GwSTZsR5OSv-8KdaTFgi-In4IKM"/>
+</div>
+</div>
+<!-- Draft Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/10 hover:shadow-[0_12px_32px_rgba(45,51,56,0.06)] transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-primary-container/30 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="architecture">architecture</span>
+</div>
+<span class="text-[10px] bg-error-container/20 text-error-dim px-2 py-1 rounded-full font-bold">DRAFT</span>
+</div>
+<h4 class="font-bold text-sm mb-1">Interface Material Map</h4>
+<p class="text-xs text-on-surface-variant mb-4">Generated 3 days ago • 12.5MB</p>
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-primary-container border-2 border-surface-container-lowest flex items-center justify-center text-[10px] font-bold text-primary">A</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Analysis Section (Wide Glassmorphism Card) -->
+<section class="mb-12">
+<div class="bg-surface-container-lowest rounded-xl p-1 shadow-[0_1px_2px_rgba(0,0,0,0.05)] border border-outline-variant/5">
+<div class="p-8 border-b border-outline-variant/10">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-xl font-bold tracking-tight">Active Engine Analytics</h3>
+<p class="text-on-surface-variant text-sm mt-1">Real-time telemetry from the Nocturne processing core.</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-lg">
+<button class="px-3 py-1.5 bg-surface-container-lowest text-xs font-bold rounded shadow-sm">24 Hours</button>
+<button class="px-3 py-1.5 text-xs font-bold text-on-surface-variant hover:text-on-surface transition-colors">7 Days</button>
+<button class="px-3 py-1.5 text-xs font-bold text-on-surface-variant hover:text-on-surface transition-colors">30 Days</button>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-8">
+<div class="border-r border-outline-variant/10 last:border-none pr-8">
+<span class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">Inference Rate</span>
+<div class="flex items-end space-x-2 mt-2">
+<span class="text-2xl font-bold leading-none">1,284</span>
+<span class="text-[10px] text-[#40916c] font-bold mb-0.5">+12%</span>
+</div>
+</div>
+<div class="border-r border-outline-variant/10 last:border-none pr-8">
+<span class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">Token Density</span>
+<div class="flex items-end space-x-2 mt-2">
+<span class="text-2xl font-bold leading-none">0.92</span>
+<span class="text-[10px] text-on-surface-variant font-bold mb-0.5">Stable</span>
+</div>
+</div>
+<div class="border-r border-outline-variant/10 last:border-none pr-8">
+<span class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">Success Weight</span>
+<div class="flex items-end space-x-2 mt-2">
+<span class="text-2xl font-bold leading-none">99.4%</span>
+<span class="text-[10px] text-[#40916c] font-bold mb-0.5">Optimal</span>
+</div>
+</div>
+<div class="last:border-none">
+<span class="text-[10px] uppercase font-black text-on-surface-variant tracking-widest">Latent Latency</span>
+<div class="flex items-end space-x-2 mt-2">
+<span class="text-2xl font-bold leading-none">14ms</span>
+<span class="text-[10px] text-[#9f403d] font-bold mb-0.5">-2ms</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low/30 flex justify-between items-center rounded-b-xl px-8">
+<p class="text-[10px] text-on-surface-variant font-medium">Auto-refreshing every 60s • Last update: 14:02:11 GMT</p>
+<button class="text-[10px] font-black text-primary uppercase tracking-widest hover:opacity-80 transition-opacity">Export Raw Telemetry</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-8 bg-[#f9f9fb] dark:bg-[#121212] border-t border-[#acb3b8]/20 mt-auto">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center opacity-80 font-inter text-xs tracking-wide uppercase">
+<div class="text-[#5f5e60] mb-4 md:mb-0">
+                    © 2024 Digital Architect. Built for Precision.
+                </div>
+<div class="flex space-x-8">
+<a class="text-[#596065] dark:text-[#acb3b8] hover:text-[#2d3338] underline decoration-[#5f5e60] transition-all" href="#">Privacy Policy</a>
+<a class="text-[#596065] dark:text-[#acb3b8] hover:text-[#2d3338] underline decoration-[#5f5e60] transition-all" href="#">Terms of Service</a>
+<a class="text-[#596065] dark:text-[#acb3b8] hover:text-[#2d3338] underline decoration-[#5f5e60] transition-all" href="#">API Status</a>
+<a class="text-[#596065] dark:text-[#acb3b8] hover:text-[#2d3338] underline decoration-[#5f5e60] transition-all" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Only on main dashboard) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0_12px_32px_rgba(95,94,96,0.4)] flex items-center justify-center hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="rocket_launch">rocket_launch</span>
+</button>
+</div>
+</body></html>

@@ -40,7 +40,9 @@ async def create_job(input_text: str) -> dict:
         "analysis":     None,
         "suggestions":  None,
         "picked":       [],          # list of format keys user selected
-        "drafts":       {},          # {format: draft_text}
+        "drafts":             {},    # {format: draft_text}
+        "images":             {},    # {format: base64_png}
+        "prompt_versions_used": {},  # {format: prompt_version_id}
         "error":        None,
         "created_at":   datetime.now(timezone.utc),
         "updated_at":   datetime.now(timezone.utc),
@@ -93,8 +95,50 @@ async def set_picked(job_id: str, picked: list[str]) -> None:
     await update_job(job_id, picked=picked, status="drafting")
 
 
-async def set_drafts(job_id: str, drafts: dict) -> None:
-    await update_job(job_id, drafts=drafts, status="done")
+async def set_drafts(
+    job_id: str,
+    drafts: dict,
+    images: dict | None = None,
+    prompt_versions_used: dict | None = None,
+) -> None:
+    fields: dict = {"drafts": drafts, "status": "done"}
+    if images:
+        fields["images"] = images
+    if prompt_versions_used:
+        fields["prompt_versions_used"] = prompt_versions_used
+    await update_job(job_id, **fields)
+
+
+async def create_feedback(
+    job_id: str,
+    format: str,
+    rating: int,
+    comment: str,
+    draft_text: str,
+    prompt_version_id: str | None,
+) -> dict:
+    db = get_db()
+    doc = {
+        "job_id":            job_id,
+        "format":            format,
+        "rating":            rating,
+        "comment":           comment,
+        "draft_text":        draft_text,
+        "prompt_version_id": prompt_version_id,
+        "processed":         False,
+        "created_at":        datetime.now(timezone.utc),
+    }
+    result = await db.feedback.insert_one(doc)
+    doc["_id"] = str(result.inserted_id)
+    return doc
+
+
+async def get_feedback_for_job(job_id: str) -> list[dict]:
+    db = get_db()
+    docs = await db.feedback.find({"job_id": job_id}).to_list(100)
+    for d in docs:
+        d["_id"] = str(d["_id"])
+    return docs
 
 
 async def fail_job(job_id: str, error: str) -> None:

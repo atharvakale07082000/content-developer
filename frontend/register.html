@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface": "#2d3338",
+              "on-secondary-fixed-variant": "#5b5b60",
+              "secondary": "#5e5f63",
+              "surface-bright": "#f9f9fb",
+              "on-primary-fixed": "#3f3f41",
+              "inverse-surface": "#0c0e10",
+              "on-primary": "#faf7f9",
+              "on-error": "#fff7f6",
+              "tertiary-fixed-dim": "#cac6e6",
+              "on-background": "#2d3338",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "on-primary-container": "#525154",
+              "tertiary-container": "#d8d3f4",
+              "inverse-primary": "#ffffff",
+              "surface-variant": "#dde3e9",
+              "on-tertiary-container": "#4a4863",
+              "inverse-on-surface": "#9c9d9f",
+              "primary": "#5f5e60",
+              "surface-container-highest": "#dde3e9",
+              "on-secondary-fixed": "#3e3f43",
+              "outline": "#757c81",
+              "surface-tint": "#5f5e60",
+              "surface-container-high": "#e4e9ee",
+              "on-tertiary-fixed-variant": "#54516d",
+              "surface": "#f9f9fb",
+              "tertiary-dim": "#53506b",
+              "tertiary-fixed": "#d8d3f4",
+              "secondary-fixed-dim": "#d5d4d9",
+              "primary-fixed-dim": "#d6d3d6",
+              "primary-dim": "#535254",
+              "primary-fixed": "#e4e2e4",
+              "secondary-fixed": "#e3e2e7",
+              "on-secondary": "#faf8fe",
+              "on-secondary-container": "#515156",
+              "error-dim": "#4e0309",
+              "on-error-container": "#752121",
+              "tertiary": "#5f5c78",
+              "surface-dim": "#d3dbe2",
+              "surface-container": "#ebeef2",
+              "outline-variant": "#acb3b8",
+              "error-container": "#fe8983",
+              "on-primary-fixed-variant": "#5c5b5d",
+              "on-tertiary": "#fcf7ff",
+              "on-surface-variant": "#596065",
+              "background": "#f9f9fb",
+              "error": "#9f403d",
+              "secondary-dim": "#525357",
+              "on-tertiary-fixed": "#37354f",
+              "secondary-container": "#e3e2e7",
+              "primary-container": "#e4e2e4"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .milled-metal-gradient {
+        background: linear-gradient(145deg, #5f5e60 0%, #535254 100%);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Anchor (Suppressed based on Transactional Policy, but keeping structural style for identity) -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(45,51,56,0.04)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto w-full">
+<div class="text-lg font-bold tracking-tighter text-slate-900">Aether AI</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-sm font-['Inter'] antialiased tracking-tight text-slate-500 hover:text-slate-900 transition-colors duration-200" href="#">System Status</a>
+</div>
+</div>
+</header>
+<main class="min-h-screen flex items-center justify-center pt-16 px-6">
+<!-- Main Stage Container -->
+<div class="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-2 bg-surface-container-low rounded-xl overflow-hidden shadow-[0px_12px_32px_rgba(45,51,56,0.04)]">
+<!-- Branding / Visual Side -->
+<div class="relative hidden md:flex flex-col justify-between p-12 bg-on-surface text-surface overflow-hidden">
+<div class="z-10">
+<h1 class="text-[2.75rem] font-headline font-bold leading-tight tracking-[-0.02em] mb-6">
+                        Join the <br/> Precision Engine.
+                    </h1>
+<p class="text-on-surface-variant text-surface-container-high max-w-sm font-light leading-relaxed">
+                        Architect your future with Aether AI. Experience the high-performance workspace designed for digital professionals.
+                    </p>
+</div>
+<div class="z-10 flex items-center gap-4">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-surface-container-highest overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" data-alt="User avatar profile portrait minimalist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0FfeAQU3oBPeydDJUZk_K_BMkD3i0ODeM_RuYT3GhuHRbENrmG73upwbMYNc6qEJD_FCtusn943KDkI1gA7uAnlLwRJiYZurmYgshYezYQL6cIQ8A3jhOgEyhpHe1GHCaILAJcwBPknIjSpbhdttFCiFNsvexLJgVXhAe3Xymx8dwVeKbIhfbgHpDN5_OuFlEg3vQCVm4HC77v92pDuuKzbxq2-4KwUvLKRDo6acH-9s1rRouzjFJ9ow1vs1q-qqcA6HHAgTGwgE"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-surface-container-highest overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" data-alt="User avatar profile portrait minimalist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEGNykqNoA1-w6zquwbvvTPUKeE6_KrP9uUSvnhNKWoNUbl6M7mtgbo6O68nxloiTZm-Po5Y8twMlmjTBYQahgQKErOJtEpSSvxMNhl5zv9cBsNQkSseM0mYnurcmwZcWL003z5yH7z9-t4uDU0quV1My00a11YUyjPyHoByvXcWNGKl2BfHBn27UaXyr8rf6380Rg1x7kCeIKNGis7EZXArbOmZmIOscNa8b_JdkeXC-v2JmA9p3MovtRf8klRsAl4qX9R_qKncc"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-surface-container-highest overflow-hidden">
+<img alt="User" class="w-full h-full object-cover" data-alt="User avatar profile portrait minimalist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBz7X2Z8gFJiJJwYREgap9BTyqWEMQdguVxhVyfxitpqArTX1Kcsvym58nu0Q2AS7u9XkJgaqzo4ofr1Z9bzg1pHnSHO1kiDcxL8h9BVSQmFvMACCDIUlyN8SmwJL0mG_HYCTc9mq8IFoNTLDBOUIbdVmWp7XFiylqN8_USMLG7aK4RVQtglU1cqHZRR6y02GwIpbHFLC9VAxFjr0VPxSlUrGGUqHKfqDJnKF8ERzm329VqOkCozjOK0OqQmIILCSgUCgmBdJo_AUk"/>
+</div>
+</div>
+<span class="text-xs font-label uppercase tracking-[0.1em] text-surface-variant">Used by 2.4k+ architects</span>
+</div>
+<!-- Abstract Decorative Element -->
+<div class="absolute top-0 right-0 w-full h-full opacity-20 pointer-events-none">
+<div class="absolute -top-1/4 -right-1/4 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary to-transparent blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-on-surface to-transparent"></div>
+</div>
+</div>
+<!-- Form Side -->
+<div class="p-8 md:p-16 bg-surface-container-lowest flex flex-col justify-center">
+<div class="max-w-sm mx-auto w-full">
+<header class="mb-10">
+<h2 class="text-[1.375rem] font-headline font-bold text-on-surface mb-2 tracking-tight">Create Account</h2>
+<p class="text-sm text-on-surface-variant">Start your journey with Aether AI today.</p>
+</header>
+<form id="register-form" class="space-y-6">
+<!-- Full Name Field -->
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-label font-medium uppercase tracking-[0.1em] text-on-surface-variant">Full Name</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors">person</span>
+<input required class="w-full pl-12 pr-4 py-3 bg-surface-container-low rounded-xl border-0 focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest text-on-surface placeholder:text-outline/50 transition-all duration-200" placeholder="John Doe" type="text"/>
+</div>
+</div>
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-label font-medium uppercase tracking-[0.1em] text-on-surface-variant">Email Address</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors">mail</span>
+<input required class="w-full pl-12 pr-4 py-3 bg-surface-container-low rounded-xl border-0 focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest text-on-surface placeholder:text-outline/50 transition-all duration-200" placeholder="architect@aether.ai" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-label font-medium uppercase tracking-[0.1em] text-on-surface-variant">Password</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors">lock</span>
+<input required class="w-full pl-12 pr-12 py-3 bg-surface-container-low rounded-xl border-0 focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest text-on-surface placeholder:text-outline/50 transition-all duration-200" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full milled-metal-gradient text-on-primary font-semibold py-4 rounded-xl shadow-lg active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+<span>Create Account</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+<script>
+    document.getElementById('register-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.location.href = '/dashboard.html';
+    });
+</script>
+<div class="mt-8 flex flex-col gap-4">
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-surface-variant"></div>
+<span class="flex-shrink mx-4 text-[11px] font-label uppercase tracking-widest text-outline">or sign up with</span>
+<div class="flex-grow border-t border-surface-variant"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-low hover:bg-surface-container-high rounded-xl transition-colors duration-200 group">
+<img alt="Google" class="w-5 h-5 grayscale group-hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4jWonaKTk5Jkq3lTErnyineZARtYZheMj7mfl3AisG0GdOM5l_1MwVjH-tP7BDM2ccnY4H7TInk-lBiWLwJOh724uBW402dluCi_2yidJCLsqKT-bkfxqYRV9WI6-EzqS9v5I24idtmfNAYkBeoT6QT3VtJo-H1jhScFldmu4_T7FaD2oGH6Y67-KleeT59gGvN7XlZNSii01EStcLqhChwNW-SwezWdb3CJpqKM3reYrAGvQTid5wKQiNMvxtEOfla-AlxEIIcU"/>
+<span class="text-sm font-medium text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-low hover:bg-surface-container-high rounded-xl transition-colors duration-200 group">
+<img alt="GitHub" class="w-5 h-5 opacity-60 group-hover:opacity-100 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi9ItNwaqJ-tT25h-tqbm8Xdw8RQEU5jgpiqslCXdWnVNobMlsUDLwdKmaFx_j2lqgBMZXa5Yap43pvRYAMg2cbwKrXzGzDrKZy0UANP8kRn_ZmItxj_lQqcztHjYcs-MMmDoTr-haWtvDTH3KtdMBl7YRNLgvgkitKTH0AE1YiG0X67ZJ4Z7osWxDpaid0D4MgmfWyPi1QU0DaQxuIXTmoQvRCoxSngIHHG01nJk6ey1MYEh9Q9Zb5pqyNEQhUiOsHiHXSe9BLg8"/>
+<span class="text-sm font-medium text-on-surface">GitHub</span>
+</button>
+</div>
+</div>
+<footer class="mt-10 text-center">
+<p class="text-sm text-on-surface-variant">
+                            Already have an account? 
+                            <a class="text-on-surface font-semibold hover:underline underline-offset-4 decoration-primary/30 transition-all" href="/login.html">Sign In</a>
+</p>
+</footer>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Anchor -->
+<footer class="w-full py-16 border-t border-slate-200/10  bg-slate-50 mt-12">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center px-8 gap-6">
+<div class="text-xs font-black text-slate-400">© 2024 AETHER AI. PRECISION ENGINE V2.4</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">Privacy</a>
+<a class="font-['Inter'] text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">Terms</a>
+<a class="font-['Inter'] text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">Security</a>
+<a class="font-['Inter'] text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</body></html>

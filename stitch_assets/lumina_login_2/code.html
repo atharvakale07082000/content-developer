@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-surface": "#2d3338",
+                "on-secondary-fixed-variant": "#5b5b60",
+                "secondary": "#5e5f63",
+                "surface-bright": "#f9f9fb",
+                "on-primary-fixed": "#3f3f41",
+                "inverse-surface": "#0c0e10",
+                "on-primary": "#faf7f9",
+                "on-error": "#fff7f6",
+                "tertiary-fixed-dim": "#cac6e6",
+                "on-background": "#2d3338",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-low": "#f2f4f6",
+                "on-primary-container": "#525154",
+                "tertiary-container": "#d8d3f4",
+                "inverse-primary": "#ffffff",
+                "surface-variant": "#dde3e9",
+                "on-tertiary-container": "#4a4863",
+                "inverse-on-surface": "#9c9d9f",
+                "primary": "#5f5e60",
+                "surface-container-highest": "#dde3e9",
+                "on-secondary-fixed": "#3e3f43",
+                "outline": "#757c81",
+                "surface-tint": "#5f5e60",
+                "surface-container-high": "#e4e9ee",
+                "on-tertiary-fixed-variant": "#54516d",
+                "surface": "#f9f9fb",
+                "tertiary-dim": "#53506b",
+                "tertiary-fixed": "#d8d3f4",
+                "secondary-fixed-dim": "#d5d4d9",
+                "primary-fixed-dim": "#d6d3d6",
+                "primary-dim": "#535254",
+                "primary-fixed": "#e4e2e4",
+                "secondary-fixed": "#e3e2e7",
+                "on-secondary": "#faf8fe",
+                "on-secondary-container": "#515156",
+                "error-dim": "#4e0309",
+                "on-error-container": "#752121",
+                "tertiary": "#5f5c78",
+                "surface-dim": "#d3dbe2",
+                "surface-container": "#ebeef2",
+                "outline-variant": "#acb3b8",
+                "error-container": "#fe8983",
+                "on-primary-fixed-variant": "#5c5b5d",
+                "on-tertiary": "#fcf7ff",
+                "on-surface-variant": "#596065",
+                "background": "#f9f9fb",
+                "error": "#9f403d",
+                "secondary-dim": "#525357",
+                "on-tertiary-fixed": "#37354f",
+                "secondary-container": "#e3e2e7",
+                "primary-container": "#e4e2e4"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (Restricted to Shell) -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(45,51,56,0.04)]">
+<div class="max-w-screen-2xl mx-auto w-full flex justify-between items-center px-8 py-4">
+<div class="text-lg font-bold tracking-tighter text-slate-900 dark:text-slate-50 font-headline">
+                Lumina
+            </div>
+<nav class="hidden md:flex gap-8">
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#">Platform</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#">Solutions</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200" href="#">Pricing</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors duration-200">Help</button>
+</div>
+</div>
+</header>
+<main class="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
+<!-- Background Elements for Depth -->
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-container opacity-20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-tertiary-container opacity-20 blur-[120px] rounded-full"></div>
+<div class="w-full max-w-[440px] z-10">
+<!-- Glassmorphism Login Card -->
+<div class="glass-card p-10 xl:rounded-xl shadow-[0px_12px_32px_rgba(45,51,56,0.04)] ring-1 ring-outline-variant/20">
+<div class="flex flex-col items-center mb-10">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-on-primary text-2xl" data-icon="light_mode">light_mode</span>
+</div>
+<h1 class="text-on-background font-headline text-[1.75rem] font-bold tracking-tight mb-2">Sign in to Lumina</h1>
+<p class="text-on-surface-variant text-sm font-medium">Continue your high-performance workflow</p>
+</div>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="block text-[0.75rem] font-bold uppercase tracking-widest text-on-surface-variant px-1" for="email">Email Address</label>
+<input class="w-full h-12 px-4 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all duration-200" id="email" placeholder="name@company.com" type="email"/>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="block text-[0.75rem] font-bold uppercase tracking-widest text-on-surface-variant" for="password">Password</label>
+<a class="text-[0.75rem] font-bold text-primary hover:text-on-surface transition-colors duration-200" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<input class="w-full h-12 px-4 bg-surface-container-low border-none rounded-xl text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all duration-200" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<button class="w-full h-12 bg-gradient-to-br from-primary to-primary-dim text-on-primary font-bold rounded-xl shadow-lg shadow-primary/10 hover:opacity-95 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" type="submit">
+                        Sign In
+                        <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<div class="relative my-10">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/20"></div>
+</div>
+<div class="relative flex justify-center text-[10px] font-black uppercase tracking-widest">
+<span class="bg-white/0 px-4 text-outline">Or continue with</span>
+</div>
+</div>
+<button class="w-full h-12 bg-surface-container-highest/50 hover:bg-surface-container-highest text-on-surface-variant font-bold rounded-xl transition-all duration-200 flex items-center justify-center gap-3 active:scale-[0.98]">
+<img alt="Google Logo" class="w-5 h-5" data-alt="Google colorful G logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYDrTVCn0PsZM9ppN74SdEM9hGVT49rO4G40K1YA2F6VbDhDdOrJ0qLQlmfqrP_l20Q7Z3NW4MrHDLXshrfSnguXscmEuDW8ZL3KtPlOY6MKSOMxZpo1wFVxPrbp_9wkHYdQ3EEQo_kANGOTpJo_9owsRwUDGijRTx2Cn5RbNyMwOtFtuzqHtKqLrM-gQey1HpD9OVyHByQbjR6Bdlonw95lSuYTJiU89xOBsrPQcVy-iGvYBtcKnROYKdG8ogaup9tvIBe7g2rj4"/>
+                    Sign in with Google
+                </button>
+<p class="text-center mt-10 text-xs text-on-surface-variant font-medium">
+                    Don't have an account? 
+                    <a class="text-primary font-bold hover:underline underline-offset-4" href="#">Create workspace</a>
+</p>
+</div>
+</div>
+</main>
+<footer class="w-full py-16 border-t border-slate-200/10 dark:border-slate-800/10 bg-slate-50 dark:bg-slate-950">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center px-8">
+<div class="text-xs font-black text-slate-400 dark:text-slate-600 mb-4 md:mb-0">
+                LUMINA AI. PRECISION ENGINE V2.4
+            </div>
+<div class="flex gap-8">
+<a class="text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">Privacy</a>
+<a class="text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">Terms</a>
+<a class="text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">Security</a>
+<a class="text-[11px] font-medium uppercase tracking-[0.1em] text-slate-400 hover:text-slate-900 transition-opacity duration-200" href="#">System Status</a>
+</div>
+</div>
+</footer>
+</body></html>

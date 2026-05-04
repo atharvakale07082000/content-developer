@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Analysis | Precision Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#fe8983",
+              "on-tertiary": "#fcf7ff",
+              "on-surface-variant": "#596065",
+              "surface-container-highest": "#dde3e9",
+              "surface-dim": "#d3dbe2",
+              "error": "#9f403d",
+              "primary-dim": "#535254",
+              "on-secondary": "#faf8fe",
+              "on-surface": "#2d3338",
+              "tertiary-fixed": "#d8d3f4",
+              "surface-tint": "#5f5e60",
+              "on-primary-fixed": "#3f3f41",
+              "on-tertiary-fixed": "#37354f",
+              "tertiary-dim": "#53506b",
+              "on-secondary-fixed": "#3e3f43",
+              "on-primary-container": "#525154",
+              "tertiary-fixed-dim": "#cac6e6",
+              "surface-container-low": "#f2f4f6",
+              "tertiary-container": "#d8d3f4",
+              "outline-variant": "#acb3b8",
+              "secondary": "#5e5f63",
+              "surface-variant": "#dde3e9",
+              "secondary-fixed": "#e3e2e7",
+              "surface": "#f9f9fb",
+              "inverse-surface": "#0c0e10",
+              "primary-fixed-dim": "#d6d3d6",
+              "inverse-primary": "#ffffff",
+              "outline": "#757c81",
+              "on-tertiary-container": "#4a4863",
+              "on-secondary-fixed-variant": "#5b5b60",
+              "error-dim": "#4e0309",
+              "secondary-dim": "#525357",
+              "on-background": "#2d3338",
+              "on-tertiary-fixed-variant": "#54516d",
+              "secondary-fixed-dim": "#d5d4d9",
+              "surface-container": "#ebeef2",
+              "tertiary": "#5f5c78",
+              "surface-container-high": "#e4e9ee",
+              "surface-container-lowest": "#ffffff",
+              "on-error": "#fff7f6",
+              "primary-container": "#e4e2e4",
+              "on-secondary-container": "#515156",
+              "primary": "#5f5e60",
+              "surface-bright": "#f9f9fb",
+              "background": "#f9f9fb",
+              "on-primary": "#faf7f9",
+              "inverse-on-surface": "#9c9d9f",
+              "on-error-container": "#752121",
+              "secondary-container": "#e3e2e7",
+              "primary-fixed": "#e4e2e4",
+              "on-primary-fixed-variant": "#5c5b5d"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .milled-gradient {
+            background: linear-gradient(145deg, #5f5e60 0%, #535254 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 bottom-0 w-64 z-50 bg-zinc-50 dark:bg-zinc-900 flex flex-col h-full p-4 border-r border-zinc-200/50 dark:border-zinc-800/50">
+<div class="flex items-center gap-3 px-2 mb-8">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-on-primary font-bold">A</div>
+<div>
+<div class="font-bold text-zinc-900 dark:text-zinc-50 text-[14px]">The Architect</div>
+<div class="text-[11px] text-zinc-500">Precision Workspace</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-900 dark:text-white bg-white dark:bg-zinc-800 rounded-lg shadow-sm shadow-zinc-200/50 relative after:content-[''] after:absolute after:left-0 after:w-1 after:h-4 after:bg-zinc-900 dark:after:bg-zinc-100 after:rounded-full font-medium text-[13px]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-all duration-200 text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined">insights</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-all duration-200 text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+                Projects
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-all duration-200 text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined">group</span>
+                Team
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-all duration-200 text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+                Assets
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 transition-all duration-200 text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="mt-auto pt-4 space-y-1">
+<button class="w-full milled-gradient text-on-primary py-2.5 rounded-xl font-medium text-[13px] mb-6 shadow-lg shadow-primary/10 transition-transform active:scale-[0.98]">
+                New Project
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 hover:text-zinc-900 text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_support</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-zinc-500 hover:text-zinc-900 text-[13px] font-medium" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+                Documentation
+            </a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 left-0 z-40 h-16 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-200/50 dark:border-zinc-800/50 flex items-center justify-between px-6 w-full lg:pl-72 shadow-sm shadow-zinc-200/20">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-[18px]">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-0 focus:bg-surface-container-lowest transition-all placeholder:text-zinc-400" placeholder="Search analytics or documents..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-500 hover:bg-zinc-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-zinc-500 hover:bg-zinc-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-6 w-[1px] bg-zinc-200"></div>
+<button class="text-[13px] font-semibold text-primary px-3 py-1.5 hover:bg-primary/5 rounded-lg transition-colors">
+                Upgrade
+            </button>
+<div class="w-8 h-8 rounded-full bg-zinc-200 overflow-hidden ring-2 ring-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="User profile portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ivGGN0pXRf9FXIzaY1ORgooiYWSOXj3Tsq99Dmo4aN5iDZ_NXx3yXdzPTWM7J71-OE6PwNScZfqmfUijqxv0RBCgjKasF21Np0L7oXCEbg2oPfFwVntoiWK1KB22QfEEB19s8yt9oimFSeOsqdBJOjbks7ODZ2bU0ohRw7v6XAYlLcPVeGD81i2OwIKbAw0Ct88R5NSiLFcM817F5qDrNjb5pnLMpvq5BEqysqvpDf30G66uJt4Mxoi5wB7zz60QEXTmxG2Z2SQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Stage -->
+<main class="lg:pl-64 pt-16 min-h-screen flex items-center justify-center p-8 bg-surface">
+<div class="max-w-4xl w-full mx-auto space-y-12">
+<!-- Header Section -->
+<div class="text-center space-y-4">
+<h1 class="text-[2.75rem] font-extrabold tracking-tight text-on-surface leading-tight">
+                    Precision Engine
+                </h1>
+<p class="text-[1.125rem] text-on-surface-variant font-medium max-w-lg mx-auto leading-relaxed">
+                    Define your objective. Our architectural intelligence will synthesize the data and build your analysis.
+                </p>
+</div>
+<!-- Input Environment -->
+<div class="relative space-y-8">
+<!-- Main Input Field -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary/5 to-primary/10 rounded-[2rem] blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative bg-surface-container-lowest rounded-[1.5rem] p-8 shadow-[0px_12px_32px_rgba(45,51,56,0.04)] border border-outline-variant/10">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-[1.25rem] placeholder:text-zinc-300 resize-none font-body leading-relaxed text-on-surface" placeholder="Describe what you want to analyze..." rows="6"></textarea>
+<!-- Input Actions -->
+<div class="flex items-center justify-between mt-8 pt-6 border-t border-surface-container">
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-4 py-2 text-[13px] font-medium text-on-surface-variant hover:bg-surface-container-low rounded-xl transition-colors">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+                                    Upload Docs
+                                </button>
+<button class="flex items-center gap-2 px-4 py-2 text-[13px] font-medium text-on-surface-variant hover:bg-surface-container-low rounded-xl transition-colors">
+<span class="material-symbols-outlined text-[20px]">link</span>
+                                    Paste URL
+                                </button>
+<button class="flex items-center gap-2 px-4 py-2 text-[13px] font-medium text-on-surface-variant hover:bg-surface-container-low rounded-xl transition-colors">
+<span class="material-symbols-outlined text-[20px]">database</span>
+                                    Connect Source
+                                </button>
+</div>
+<button class="milled-gradient px-8 py-3 rounded-xl text-on-primary font-bold tracking-tight shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2">
+                                Analyze
+                                <span class="material-symbols-outlined text-[20px]">bolt</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Options Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 rounded-xl bg-surface-container-low border border-transparent hover:border-outline-variant/20 transition-all cursor-pointer group">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary mb-4 shadow-sm">
+<span class="material-symbols-outlined">query_stats</span>
+</div>
+<h3 class="text-[14px] font-bold text-on-surface mb-1">Market Synthesis</h3>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Generate deep competitive landscape reports from web data.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-transparent hover:border-outline-variant/20 transition-all cursor-pointer group">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary mb-4 shadow-sm">
+<span class="material-symbols-outlined">summarize</span>
+</div>
+<h3 class="text-[14px] font-bold text-on-surface mb-1">Document Audit</h3>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Extract key risks and opportunities from legal or financial PDFs.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-transparent hover:border-outline-variant/20 transition-all cursor-pointer group">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary mb-4 shadow-sm">
+<span class="material-symbols-outlined">auto_graph</span>
+</div>
+<h3 class="text-[14px] font-bold text-on-surface mb-1">Pattern Recognition</h3>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">Identify non-obvious correlations across multiple spreadsheets.</p>
+</div>
+</div>
+</div>
+<!-- Hint Footer -->
+<div class="text-center pt-8">
+<p class="text-[12px] text-zinc-400 font-medium tracking-wide flex items-center justify-center gap-2 uppercase">
+<span class="material-symbols-outlined text-[14px]">info</span>
+                    Advanced analysis takes 2-5 minutes depending on volume
+                </p>
+</div>
+</div>
+</main>
+<!-- Background Decoration -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-primary-container/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-tertiary-container/20 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

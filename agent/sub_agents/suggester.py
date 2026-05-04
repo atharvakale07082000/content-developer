@@ -1,20 +1,28 @@
-from core.config import settings
 """
-Suggester sub-agent.
-Takes the analysis dict and returns a ranked list of content suggestions
-with format, hook, audience, tone angle, and reasoning.
+SuggesterAgent — generates ranked content format suggestions from analysis.
+
+Model: HuggingFaceH4/zephyr-7b-beta
+Chosen for creative ideation and diverse, well-structured suggestion lists.
 """
-import os
 import json
-from google import genai
+from agent.base_agent import BaseAgent
+from agent.protocol import AgentTask, AgentResult
+from agent.hf_client import hf_chat, extract_json_block
 
-client = genai.Client(api_key=settings.gemini_api_key)
 
-SUGGESTER_PROMPT = """\
-You are an expert content strategist specialising in social media, newsletters, and SEO.
+class SuggesterAgent(BaseAgent):
+    agent_id = "suggester"
+    capabilities = ["suggest"]
+    model = "HuggingFaceH4/zephyr-7b-beta"
 
-Given a content analysis, generate a ranked list of content suggestions.
-Each suggestion must specify:
+    _SYSTEM = (
+        "You are an expert content strategist specialising in social media, newsletters, "
+        "and SEO. You always respond with a valid JSON array only — no markdown, no explanation."
+    )
+
+    _PROMPT = """\
+Given the content analysis below, generate a ranked list of content suggestions.
+Each suggestion must contain:
 - format: one of "linkedin" | "newsletter" | "instagram"
 - hook: a compelling opening line or headline (max 15 words)
 - target_audience: who this is for (1-2 sentences)
@@ -24,25 +32,24 @@ Each suggestion must specify:
 
 Return ONLY a valid JSON array of 4-6 suggestions, sorted by estimated_engagement descending.
 No explanation, no markdown fences.
+
+ANALYSIS:
+{analysis}
 """
 
-
-def generate_suggestions(analysis_json: str) -> list:
-    """
-    Generate ranked content suggestions from a content analysis.
-
-    Args:
-        analysis_json: JSON string of the analysis dict from the analyser agent.
-
-    Returns:
-        List of suggestion dicts.
-    """
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-exp", # Adjusted from gemini-2.5-flash to a valid one if needed, but keeping user preference
-        contents=f"{SUGGESTER_PROMPT}\n\nANALYSIS:\n{analysis_json}"
-    )
-    try:
-        return json.loads(response.text.strip())
-    except json.JSONDecodeError:
-        return [{"raw": response.text, "parse_error": True}]
-
+    def run(self, task: AgentTask) -> AgentResult:
+        try:
+            analysis = task.payload["analysis"]
+            prompt = self._PROMPT.format(analysis=analysis)
+            raw = hf_chat(self.model, prompt, max_tokens=1500, temperature=0.75, system=self._SYSTEM)
+            try:
+                output = json.loads(extract_json_block(raw))
+            except json.JSONDecodeError:
+                output = [{"raw": raw, "parse_error": True}]
+            return AgentResult(
+                task_id=task.task_id, agent_id=self.agent_id, success=True, output=output
+            )
+        except Exception as e:
+            return AgentResult(
+                task_id=task.task_id, agent_id=self.agent_id, success=False, output=None, error=str(e)
+            )

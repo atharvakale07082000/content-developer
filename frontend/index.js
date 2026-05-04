@@ -21,21 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
             
             localStorage.setItem('current_job_id', job_id);
 
-            // 2. Poll for suggestions
-            const poll = setInterval(async () => {
-                const jobResp = await fetch(`/api/jobs/${job_id}`);
-                const job = await jobResp.json();
+            // 2. SSE for suggestions
+            const eventSource = new EventSource(`/api/jobs/${job_id}/stream`);
+            
+            eventSource.addEventListener('status_update', (event) => {
+                const job = JSON.parse(event.data);
                 
                 if (job.status === 'awaiting_pick') { 
-                    clearInterval(poll); 
+                    eventSource.close();
                     window.location.href = '/suggestions.html'; 
                 } else if (job.status === 'failed') {
-                    clearInterval(poll);
+                    eventSource.close();
                     alert('Job failed: ' + job.error);
                     submitBtn.textContent = 'Analyse Content';
                     submitBtn.disabled = false;
                 }
-            }, 3000);
+            });
+
+            eventSource.addEventListener('error', (event) => {
+                console.error('SSE Error:', event);
+                eventSource.close();
+                alert('Connection to analysis stream lost or failed. Please check if the backend is running and try again.');
+                submitBtn.textContent = 'Analyse Content';
+                submitBtn.disabled = false;
+            });
         } catch (err) {
             console.error(err);
             alert('Failed to submit job.');

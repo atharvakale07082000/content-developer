@@ -74,21 +74,30 @@ document.addEventListener('DOMContentLoaded', async () => {
                 body: JSON.stringify({ formats: selectedFormats })
             });
 
-            // Poll for drafts
-            const pollDrafts = setInterval(async () => {
-                const jobResp = await fetch(`/api/jobs/${jobId}`);
-                const job = await jobResp.json();
+            // 2. SSE for drafts
+            const eventSource = new EventSource(`/api/jobs/${jobId}/stream`);
+            
+            eventSource.addEventListener('status_update', (event) => {
+                const job = JSON.parse(event.data);
                 
                 if (job.status === 'done') { 
-                    clearInterval(pollDrafts); 
+                    eventSource.close();
                     window.location.href = '/drafts.html'; 
                 } else if (job.status === 'failed') {
-                    clearInterval(pollDrafts);
+                    eventSource.close();
                     alert('Draft generation failed');
                     generateBtn.textContent = 'Generate Drafts';
                     generateBtn.disabled = false;
                 }
-            }, 3000);
+            });
+
+            eventSource.addEventListener('error', (event) => {
+                console.error('SSE Error:', event);
+                eventSource.close();
+                alert('Connection to drafting stream lost. Please try again.');
+                generateBtn.textContent = 'Generate Drafts';
+                generateBtn.disabled = false;
+            });
         } catch (e) {
             console.error(e);
             alert('Failed to submit picks');
